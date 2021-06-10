@@ -1,0 +1,28 @@
+version: '3.4'
+
+networks:
+  diegonpp:
+    driver: bridge
+
+services:
+  apiprevisaotempo:
+    image: ${DOCKER_REGISTRY-}apiprevisaotempo
+    ports:
+      - "5002:5002"
+    build:
+      context: .
+      dockerfile: ApiPrevisaoTempo/Dockerfile
+    networks:
+      - diegonpp
+
+
+
+  flurlpolly:
+    image: ${DOCKER_REGISTRY-}flurlpolly
+    ports:
+      - "5000:5000"
+    build:
+      context: .
+      dockerfile: FlurlPolly/Dockerfile
+    networks:
+      - diegonpp
