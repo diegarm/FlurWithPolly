@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Geral\\09_S\\Lab\\FlurlPolly\\ApiPrevisaoTempo\\ApiPrevisaoTempo.csproj": {}
+    "C:\\G\\S\\Lab\\FlurWithPolly\\ApiPrevisaoTempo\\ApiPrevisaoTempo.csproj": {}
   },
   "projects": {
-    "C:\\Geral\\09_S\\Lab\\FlurlPolly\\ApiPrevisaoTempo\\ApiPrevisaoTempo.csproj": {
+    "C:\\G\\S\\Lab\\FlurWithPolly\\ApiPrevisaoTempo\\ApiPrevisaoTempo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Geral\\09_S\\Lab\\FlurlPolly\\ApiPrevisaoTempo\\ApiPrevisaoTempo.csproj",
+        "projectUniqueName": "C:\\G\\S\\Lab\\FlurWithPolly\\ApiPrevisaoTempo\\ApiPrevisaoTempo.csproj",
         "projectName": "ApiPrevisaoTempo",
-        "projectPath": "C:\\Geral\\09_S\\Lab\\FlurlPolly\\ApiPrevisaoTempo\\ApiPrevisaoTempo.csproj",
+        "projectPath": "C:\\G\\S\\Lab\\FlurWithPolly\\ApiPrevisaoTempo\\ApiPrevisaoTempo.csproj",
         "packagesPath": "C:\\Users\\u006385\\.nuget\\packages\\",
-        "outputPath": "C:\\Geral\\09_S\\Lab\\FlurlPolly\\ApiPrevisaoTempo\\obj\\",
+        "outputPath": "C:\\G\\S\\Lab\\FlurWithPolly\\ApiPrevisaoTempo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\u006385\\AppData\\Roaming\\NuGet\\NuGet.Config",
