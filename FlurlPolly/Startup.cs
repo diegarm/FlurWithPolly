@@ -32,7 +32,6 @@ namespace FlurlPolly
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
             var policy = Policy
             .Handle<HttpRequestException>()
             .OrResult<HttpResponseMessage>(r => !r.IsSuccessStatusCode)
