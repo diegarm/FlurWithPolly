@@ -8,10 +8,10 @@ services:
   apiprevisaotempo:
     image: ${DOCKER_REGISTRY-}apiprevisaotempo
     ports:
-      - "5002:5002"
+      - "5003:80"
     build:
       context: .
-      dockerfile: ApiPrevisaoTempo/Dockerfile
+      dockerfile: PrevisaoTempo/Dockerfile
     networks:
       - diegonpp
 
@@ -20,7 +20,7 @@ services:
   flurlpolly:
     image: ${DOCKER_REGISTRY-}flurlpolly
     ports:
-      - "5000:5000"
+      - "5004:80"
     build:
       context: .
       dockerfile: FlurlPolly/Dockerfile

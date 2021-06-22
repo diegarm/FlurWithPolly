@@ -1,3 +1,4 @@
+using Flurl.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,10 +7,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using FlurlPolly;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Polly;
+using System.Net.Http;
+using FlurlPolly.Policies;
+using System.Diagnostics;
 
 namespace FlurlPolly
 {
@@ -26,9 +32,29 @@ namespace FlurlPolly
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            var policy = Policy
+            .Handle<HttpRequestException>()
+            .OrResult<HttpResponseMessage>(r => !r.IsSuccessStatusCode)
+            .WaitAndRetryAsync(new[]
+                        {
+                            TimeSpan.FromSeconds(1),
+                            TimeSpan.FromSeconds(2),
+                            TimeSpan.FromSeconds(5)
+                        },
+                        (delegateResult, retryCount) =>
+                        {
+                            Debug.WriteLine(
+                                $"Api - Retry Acionado - Tentativa >> {retryCount}");
+                        });
+            
+            
+
+            FlurlHttp.Configure(settings => settings.HttpClientFactory = new PollyFactory(policy));
+
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+                
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -47,5 +73,8 @@ namespace FlurlPolly
                 endpoints.MapControllers();
             });
         }
+
+
+
     }
 }
